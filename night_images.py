@@ -101,8 +101,7 @@ I = I[:, :, :3] / 255
 
 f_enhanced = dehaze(I, tmin, w, alpha, omega, p, eps)
 f_enhanced2 = dehaze(I, tmin, w, alpha, omega, p, eps, True)
-cv2.imshow('original', orig)
-cv2.imshow('F_enhanced', f_enhanced)
-cv2.imshow('F_enhanced2', f_enhanced2)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+cv2.imwrite('original', orig)
+cv2.imwrite('F_enhanced', f_enhanced)
+cv2.imwrite('F_enhanced2', f_enhanced2)
+exit(0)
