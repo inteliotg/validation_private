@@ -4,7 +4,7 @@ Created on Tue Sep  8 01:00:10 2020
 
 @author: hp
 """
-
+import time
 import cv2
 import numpy as np
 from guidedfilter import guided_filter
@@ -101,7 +101,13 @@ I = I[:, :, :3] / 255
 
 f_enhanced = dehaze(I, tmin, w, alpha, omega, p, eps)
 f_enhanced2 = dehaze(I, tmin, w, alpha, omega, p, eps, True)
-cv2.imwrite('original', orig)
-cv2.imwrite('F_enhanced', f_enhanced)
-cv2.imwrite('F_enhanced2', f_enhanced2)
+print("Copying original image to results folder")
+cv2.imwrite('original.jpg', orig)
+print("Copying enhanced image 1 to results folder")
+cv2.imwrite('F_enhanced.jpg', f_enhanced)
+time.sleep(60)
+print("Copying enhanced image 2 to results folder")
+cv2.imwrite('F_enhanced2.jpg', f_enhanced2)
+print("sleeping for 120 seconds")
+time.sleep(120)
 exit(0)
