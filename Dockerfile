@@ -7,5 +7,5 @@ WORKDIR /app
 COPY . .
 RUN pip3 install --no-cache-dir -r requirements.txt
 
-RUN mkdir -p /data/results
-ENTRYPOINT ["python3", "night_images.py", "--output_dir", "/data/results/"]
+RUN mkdir -p /opt/results
+ENTRYPOINT ["python3", "night_images.py"]

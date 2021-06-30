@@ -98,15 +98,15 @@ eps = 1e-3   # for J image
 
 I = np.asarray(im, dtype=np.float64) # Convert the input to an array.
 I = I[:, :, :3] / 255
-
+path = '/opt/results'
 f_enhanced = dehaze(I, tmin, w, alpha, omega, p, eps)
 f_enhanced2 = dehaze(I, tmin, w, alpha, omega, p, eps, True)
 print("Copying original image to results folder")
-cv2.imwrite('original.jpg', orig)
+cv2.imwrite(os.path.join(path, 'original.jpg'), orig)
 print("Copying enhanced image 1 to results folder")
-cv2.imwrite('F_enhanced.jpg', f_enhanced)
+cv2.imwrite(os.path.join(path, 'F_enhanced.jpg'), f_enhanced)
 print("Copying enhanced image 2 to results folder")
-cv2.imwrite('F_enhanced2.jpg', f_enhanced2)
-print("sleeping for 60 seconds")
+cv2.imwrite(os.path.join(path, 'F_enhanced2.jpg'), f_enhanced2)
+print("sleeping for some time")
 time.sleep(60)
 exit(0)
