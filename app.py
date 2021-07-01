@@ -99,7 +99,7 @@ eps = 1e-3   # for J image
 I = np.asarray(im, dtype=np.float64) # Convert the input to an array.
 I = I[:, :, :3] / 255
 
-directory = "filter_output"
+directory = "filter_output_source"
 parent_dir = "/opt/"
 path = os.path.join(parent_dir, directory)
 os.mkdir(path)
