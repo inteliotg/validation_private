@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue Sep  8 01:00:10 2020
-
-@author: hp
+Created on Tue July 2021
+@author: izaidi
 """
-import os
 import time
 import cv2
+import os
 import numpy as np
 from guidedfilter import guided_filter
 
@@ -99,11 +98,13 @@ eps = 1e-3   # for J image
 
 I = np.asarray(im, dtype=np.float64) # Convert the input to an array.
 I = I[:, :, :3] / 255
-
-directory = "filter_output_source"
+directory = "filter_output"
 parent_dir = "/opt/"
 path = os.path.join(parent_dir, directory)
-os.mkdir(path)
+if os.path.exists(path):
+    print("{} folder exists".format(directory))
+else:
+    os.mkdir(path)
 f_enhanced = dehaze(I, tmin, w, alpha, omega, p, eps)
 f_enhanced2 = dehaze(I, tmin, w, alpha, omega, p, eps, True)
 print("Copying original image to results folder")
