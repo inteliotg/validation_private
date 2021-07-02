@@ -102,7 +102,10 @@ I = I[:, :, :3] / 255
 directory = "filter_output"
 parent_dir = "/opt/"
 path = os.path.join(parent_dir, directory)
-os.mkdir(path)
+if os.path.exists(path):
+    print("{} folder exists".format(directory))
+else:
+    os.mkdir(path)
 f_enhanced = dehaze(I, tmin, w, alpha, omega, p, eps)
 f_enhanced2 = dehaze(I, tmin, w, alpha, omega, p, eps, True)
 print("Copying original image to results folder")
