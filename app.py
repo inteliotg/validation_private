@@ -99,7 +99,7 @@ eps = 1e-3   # for J image
 I = np.asarray(im, dtype=np.float64) # Convert the input to an array.
 I = I[:, :, :3] / 255
 directory = "filter_output"
-parent_dir = "/opt/"
+parent_dir = "/data/"
 path = os.path.join(parent_dir, directory)
 if os.path.exists(path):
     print("{} folder exists".format(directory))
